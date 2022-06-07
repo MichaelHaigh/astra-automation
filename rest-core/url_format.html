@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">English</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">English</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/astra-automation/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-automation/rest-core/url_format.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-automation/rest-core/url_format.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-automation/rest-core/url_format.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-automation/rest-core/url_format.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-automation/rest-core/url_format.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/us-en/astra-automation/rest-core/url_format.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-automation/rest-core/url_format.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-automation/rest-core/url_format.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-automation/rest-core/url_format.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-automation/rest-core/url_format.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -903,7 +895,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
         Astra Control Automation docs
       </a></li><li class="subfolders "><a href="#">
@@ -1101,7 +1093,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-04-15 15:22:14 +0000">04/15/2021</time>
+    <time datetime="2022-06-07 16:32:49 +0000">06/07/2022</time>
     
   
 
@@ -1119,28 +1111,15 @@
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph lead">
 <p>The general structure of the URL used to access a resource instance or collection through the REST API is composed of several values. This structure reflects the underlying object model and system design.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="format-of-the-url">Format of the URL</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>The format of the URL with an example is presented below.</p>
-</div>
-<div class="sect4">
-<h5 id="account-as-the-root">Account as the root</h5>
-<div class="paragraph">
+<div class="title">Account as the root</div>
 <p>The root of the resource path to every REST endpoint is the Astra account. And so all paths in the URL begin with <code>/account/{account_id}</code> where <code>account_id</code> is the unique UUIDv4 value for the account. Internally structure this reflects a design where all resource access is based on a specific account.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="endpoint-resource-category">Endpoint resource category</h5>
 <div class="paragraph">
+<div class="title">Endpoint resource category</div>
 <p>The Astra resource endpoints fall into three different categories:</p>
 </div>
 <div class="ulist">
@@ -1159,22 +1138,16 @@
 <div class="paragraph">
 <p>See <a href="../endpoints/resources.html">Resources</a> for more information.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="category-version">Category version</h5>
 <div class="paragraph">
+<div class="title">Category version</div>
 <p>Each of the three resource categories has a global version that controls the version of the resources accessed. By convention and definition, moving to a new major version of a resource category (such as, from <code>/v1</code> to <code>/v2</code>) will introduce breaking changes in the API.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="resource-instance-or-collection">Resource instance or collection</h5>
 <div class="paragraph">
+<div class="title">Resource instance or collection</div>
 <p>A combination of resource types and identifiers can be used in the path, based on whether a resource instance or collection is accessed.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="example">Example</h5>
 <div class="ulist">
+<div class="title">Example</div>
 <ul>
 <li>
 <p>Resource path</p>
@@ -1189,9 +1162,6 @@
 </div>
 </li>
 </ul>
-</div>
-</div>
-</div>
 </div>
 
     </article>
@@ -1339,4 +1309,5 @@
     </script>
     <script src='/us-en/astra-automation/js/www-ntap.js'></script>
     <script src='/us-en/astra-automation/js/tabbed-blocks.js'></script>
+    <script src='/us-en/astra-automation/js/sidebar.js'></script>
   </body></html>

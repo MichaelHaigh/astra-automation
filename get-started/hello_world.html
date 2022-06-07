@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">English</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">English</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/astra-automation/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-automation/get-started/hello_world.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-automation/get-started/hello_world.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-automation/get-started/hello_world.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-automation/get-started/hello_world.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-automation/get-started/hello_world.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/us-en/astra-automation/get-started/hello_world.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-automation/get-started/hello_world.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-automation/get-started/hello_world.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-automation/get-started/hello_world.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-automation/get-started/hello_world.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -903,7 +895,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
         Astra Control Automation docs
       </a></li><li class="subfolders "><a href="#">
@@ -1101,7 +1093,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-11-30 19:33:42 +0000">11/30/2021</time>
+    <time datetime="2022-06-07 16:32:49 +0000">06/07/2022</time>
     
   
 
@@ -1119,8 +1111,6 @@
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph lead">
 <p>You can issue a simple Curl command at your workstation’s CLI to get started using the Astra Control REST API and confirm its availability.</p>
 </div>
@@ -1128,11 +1118,8 @@
 <div class="title">Before you begin</div>
 <p>The Curl utility must be available on your local workstation. You must also have an API token and the associated account identifier. See <a href="get_api_token.html">Get an API token</a> for more information.</p>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="curl-example">Curl example</h5>
 <div class="paragraph">
+<div class="title">Curl example</div>
 <p>The following Curl command retrieves a list of Astra users. Provide the appropriate &lt;ACCOUNT_ID&gt; and &lt;API_TOKEN&gt; as indicated.</p>
 </div>
 <div class="listingblock">
@@ -1140,10 +1127,8 @@
 <pre class="highlight"><code class="language-curl" data-lang="curl">curl --location --request GET 'https://astra.netapp.io/accounts/&lt;ACCOUNT_ID&gt;/core/v1/users' --header 'Content-Type: application/json' --header 'Authorization: Bearer &lt;API_TOKEN&gt;'</code></pre>
 </div>
 </div>
-</div>
-<div class="sect4">
-<h5 id="json-output-example">JSON output example</h5>
 <div class="listingblock">
+<div class="title">JSON output example</div>
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">{
   "items": [
@@ -1160,7 +1145,6 @@
   ],
   "metadata": {}
 }</code></pre>
-</div>
 </div>
 </div>
 
@@ -1309,4 +1293,5 @@
     </script>
     <script src='/us-en/astra-automation/js/www-ntap.js'></script>
     <script src='/us-en/astra-automation/js/tabbed-blocks.js'></script>
+    <script src='/us-en/astra-automation/js/sidebar.js'></script>
   </body></html>

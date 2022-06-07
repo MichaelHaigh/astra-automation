@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">English</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">English</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/astra-automation/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-automation/python/python_before.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-automation/python/python_before.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-automation/python/python_before.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-automation/python/python_before.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-automation/python/python_before.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/us-en/astra-automation/python/python_before.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-automation/python/python_before.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-automation/python/python_before.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-automation/python/python_before.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-automation/python/python_before.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -903,7 +895,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
         Astra Control Automation docs
       </a></li><li class="subfolders "><a href="#">
@@ -1101,7 +1093,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-12-14 14:36:29 +0000">12/14/2021</time>
+    <time datetime="2022-06-07 16:32:49 +0000">06/07/2022</time>
     
   
 
@@ -1144,29 +1136,21 @@ In addition to accessing the Astra Control REST API directly using Python, NetAp
 <div class="paragraph">
 <p>The basic configuration requirements to run the Python scripts are described below.</p>
 </div>
-<div class="sect4">
-<h5 id="python-3">Python 3</h5>
 <div class="paragraph">
+<div class="title">Python 3</div>
 <p>You need to have the latest version of Python 3 installed.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="additional-libraries">Additional libraries</h5>
 <div class="paragraph">
+<div class="title">Additional libraries</div>
 <p>The <strong>Requests</strong> and <strong>urllib3</strong> libraries must be installed. You can use pip or another Python management tool as appropriate for your environment.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="network-access">Network access</h5>
 <div class="paragraph">
+<div class="title">Network access</div>
 <p>The workstation where the scripts run must have network access and be able to reach Astra Control. When using Astra Control Service, you must be connected to the internet and be able to connect to the service at <code><a href="https://astra.netapp.io" class="bare">https://astra.netapp.io</a></code>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="identity-information">Identity information</h5>
 <div class="paragraph">
+<div class="title">Identity information</div>
 <p>You need a valid Astra account with the account identifier and API token. See <a href="../get-started/get_api_token.html">Get an API token</a> for more information.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1188,9 +1172,8 @@ You need to update the samples as appropriate for your environment.
 </tr>
 </table>
 </div>
-<div class="sect4">
-<h5 id="identity-information-2">Identity information</h5>
 <div class="paragraph">
+<div class="title">Identity information</div>
 <p>The following file contains the API token and Astra account. You need to pass this file to Python scripts using the <code>-i</code> (or <code>--identity</code>) CLI parameter.</p>
 </div>
 <div class="listingblock">
@@ -1199,7 +1182,6 @@ You need to update the samples as appropriate for your environment.
   "api_token": "kH4CA_uVIa8q9UuPzhJaAHaGlaR7-no901DkkrVjIXk=",
   "account_id": "5131dfdf-03a4-5218-ad4b-fe84442b9786"
 }</code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -1350,4 +1332,5 @@ You need to update the samples as appropriate for your environment.
     </script>
     <script src='/us-en/astra-automation/js/www-ntap.js'></script>
     <script src='/us-en/astra-automation/js/tabbed-blocks.js'></script>
+    <script src='/us-en/astra-automation/js/sidebar.js'></script>
   </body></html>

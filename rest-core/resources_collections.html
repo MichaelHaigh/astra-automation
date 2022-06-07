@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">English</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">English</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/astra-automation/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-automation/rest-core/resources_collections.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-automation/rest-core/resources_collections.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-automation/rest-core/resources_collections.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-automation/rest-core/resources_collections.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-automation/rest-core/resources_collections.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/us-en/astra-automation/rest-core/resources_collections.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-automation/rest-core/resources_collections.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-automation/rest-core/resources_collections.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-automation/rest-core/resources_collections.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-automation/rest-core/resources_collections.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -903,7 +895,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
         Astra Control Automation docs
       </a></li><li class="subfolders "><a href="#">
@@ -1101,7 +1093,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-11-30 00:17:11 +0000">11/30/2021</time>
+    <time datetime="2022-06-07 16:32:49 +0000">06/07/2022</time>
     
   
 
@@ -1144,9 +1136,8 @@ Conceptually a REST <strong>resource</strong> is similar to an <strong>object</s
 <div class="paragraph">
 <p>The Astra Control REST API conforms to RESTful design principles. Each Astra resource instance is created based on a well-defined resource type. A set of resource instances of the same type is referred to as a <strong>collection</strong>. The API calls act on individual resources or collections of resources.</p>
 </div>
-<div class="sect4">
-<h5 id="resource-types">Resource types</h5>
 <div class="paragraph">
+<div class="title">Resource types</div>
 <p>The resource types included with the Astra Control REST API have the following characteristics:</p>
 </div>
 <div class="ulist">
@@ -1162,10 +1153,8 @@ Conceptually a REST <strong>resource</strong> is similar to an <strong>object</s
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="resource-instances">Resource instances</h5>
 <div class="paragraph">
+<div class="title">Resource instances</div>
 <p>Resource instances available through the Astra Control REST API have the following characteristics:</p>
 </div>
 <div class="ulist">
@@ -1187,10 +1176,8 @@ Conceptually a REST <strong>resource</strong> is similar to an <strong>object</s
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="resource-collections">Resource collections</h5>
 <div class="paragraph">
+<div class="title">Resource collections</div>
 <p>Resource collections available through the Astra Control REST API have the following characteristics:</p>
 </div>
 <div class="ulist">
@@ -1203,10 +1190,8 @@ Conceptually a REST <strong>resource</strong> is similar to an <strong>object</s
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="instance-identifiers">Instance identifiers</h5>
 <div class="paragraph">
+<div class="title">Instance identifiers</div>
 <p>Every resource instance is assigned an identifier when it is created. This identifier is a 128-bit UUIDv4 value. The assigned UUIDv4 values are globally unique and immutable. After issuing an API call that creates a new instance, a URL with the associated id is returned to the caller in a <code>Location</code> header of the HTTP response. You can extract the identifier and use it on subsequent calls when referring to the resource instance.</p>
 </div>
 <div class="admonitionblock note">
@@ -1223,16 +1208,14 @@ The resource identifier is the primary key used for collections.
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="common-structure-for-astra-resources">Common structure for Astra resources</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every Astra Control resource is defined using a common structure.</p>
 </div>
-<div class="sect4">
-<h5 id="common-data">Common data</h5>
 <div class="paragraph">
+<div class="title">Common data</div>
 <p>Every Astra resource contains the key-values shown in the following table.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -1265,10 +1248,8 @@ The resource identifier is the primary key used for collections.
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="metadata-object">Metadata object</h5>
 <div class="paragraph">
+<div class="title">Metadata object</div>
 <p>The metadata JSON object included with each Astra resource contains the key-values shown in the following table.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -1301,12 +1282,9 @@ The resource identifier is the primary key used for collections.
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="resource-state">Resource state</h5>
 <div class="paragraph">
+<div class="title">Resource state</div>
 <p>Selected resources a <code>state</code> value which is used to orchestrate lifecycle transitions and control access.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1456,4 +1434,5 @@ The resource identifier is the primary key used for collections.
     </script>
     <script src='/us-en/astra-automation/js/www-ntap.js'></script>
     <script src='/us-en/astra-automation/js/tabbed-blocks.js'></script>
+    <script src='/us-en/astra-automation/js/sidebar.js'></script>
   </body></html>
