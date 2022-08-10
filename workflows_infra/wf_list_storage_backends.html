@@ -536,6 +536,37 @@
           
           <a target="_blank" 
             
+              href="/us-en/astra-automation/pdfs/sidebar/LDAP_configuration.pdf" 
+            
+          >
+            <img src="/us-en/astra-automation/images/pdf.png" alt="" width="16" height="16"/>
+            LDAP configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
               href="/us-en/astra-automation/pdfs/sidebar/Buckets.pdf" 
             
           >
@@ -919,6 +950,17 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_users.html">
         List users
       </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> LDAP configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/ldap_prepare.html">
+        Prepare for LDAP configuration
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_configure_server.html">
+        Configure the LDAP server
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_add_entries.html">
+        Add LDAP entries to Astra
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_disable_reset.html">
+        Disable and reset LDAP
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Buckets</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_buckets.html">
@@ -1055,7 +1097,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-08-05 13:06:07 +0000">08/05/2021</time>
+    <time datetime="2022-08-10 15:52:08 +0000">08/10/2022</time>
     
   
 
@@ -1081,14 +1123,14 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="1-list-the-buckets">1. List the buckets</h3>
+<h3 id="1-list-the-backends">1. List the backends</h3>
 <div class="paragraph">
 <p>Perform the following REST API call.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col style="width: 14.2857%;">
+<col style="width: 85.7143%;">
 </colgroup>
 <thead>
 <tr>
@@ -1099,7 +1141,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/account/{accountID}/topology/v1/storageBackends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/account/{account_id}/topology/v1/storageBackends</p></td>
 </tr>
 </tbody>
 </table>

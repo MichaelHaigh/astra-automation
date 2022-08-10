@@ -15,14 +15,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/aa-earlier-versions.html</loc>
       
-      <lastmod>2022-04-20T18:01:04+00:00</lastmod>
+      <lastmod>2022-08-02T18:18:18+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/rn/about.html</loc>
       
-      <lastmod>2022-04-26T17:07:52+00:00</lastmod>
+      <lastmod>2022-08-02T18:38:31+00:00</lastmod>
       
     </url>
   
@@ -71,7 +71,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/get-started/hello_world.html</loc>
       
-      <lastmod>2022-06-07T16:32:49+00:00</lastmod>
+      <lastmod>2022-08-10T13:46:11+00:00</lastmod>
       
     </url>
   
@@ -99,7 +99,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/rn/known_issues.html</loc>
       
-      <lastmod>2022-04-25T22:11:57+00:00</lastmod>
+      <lastmod>2022-08-09T17:04:53+00:00</lastmod>
       
     </url>
   
@@ -107,6 +107,13 @@
       <loc>https://docs.netapp.com/us-en/astra-automation/get-started/kubernetes_concepts.html</loc>
       
       <lastmod>2022-06-07T16:32:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html</loc>
+      
+      <lastmod>2022-08-10T15:52:08+00:00</lastmod>
       
     </url>
   
@@ -155,7 +162,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/endpoints/resources.html</loc>
       
-      <lastmod>2022-04-26T01:12:23+00:00</lastmod>
+      <lastmod>2022-08-09T17:04:53+00:00</lastmod>
       
     </url>
   
@@ -183,7 +190,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation//search.html</loc>
       
-      <lastmod>2022-07-19T09:36:12+00:00</lastmod>
+      <lastmod>2022-08-10T16:14:34+00:00</lastmod>
       
     </url>
   
@@ -197,21 +204,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_clone_app.html</loc>
       
-      <lastmod>2021-06-25T15:31:14+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_clone_app_backup.html</loc>
       
-      <lastmod>2021-06-25T15:07:29+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_clone_app_snapshot.html</loc>
       
-      <lastmod>2021-06-25T15:31:14+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
@@ -258,6 +265,27 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_ldap_add_entries.html</loc>
+      
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_ldap_configure_server.html</loc>
+      
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_ldap_disable_reset.html</loc>
+      
+      <lastmod>2022-08-10T16:00:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_list_backups.html</loc>
       
       <lastmod>2021-06-24T13:38:36+00:00</lastmod>
@@ -267,28 +295,28 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_buckets.html</loc>
       
-      <lastmod>2021-08-05T13:06:07+00:00</lastmod>
+      <lastmod>2022-08-10T14:06:17+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_list_man_apps.html</loc>
       
-      <lastmod>2021-06-22T14:12:35+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_man_clusters.html</loc>
       
-      <lastmod>2021-08-05T13:06:07+00:00</lastmod>
+      <lastmod>2022-08-10T15:52:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_list_notifications.html</loc>
       
-      <lastmod>2021-06-22T19:44:57+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
@@ -302,35 +330,35 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_storage_backends.html</loc>
       
-      <lastmod>2021-08-05T13:06:07+00:00</lastmod>
+      <lastmod>2022-08-10T15:52:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_list_unman_apps.html</loc>
       
-      <lastmod>2021-12-14T14:19:57+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_users.html</loc>
       
-      <lastmod>2021-09-15T21:11:52+00:00</lastmod>
+      <lastmod>2022-08-10T14:06:17+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_manage_app.html</loc>
       
-      <lastmod>2021-07-02T13:58:21+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows/wf_restore_app_backup.html</loc>
       
-      <lastmod>2021-12-14T14:19:57+00:00</lastmod>
+      <lastmod>2022-08-10T15:03:08+00:00</lastmod>
       
     </url>
   
@@ -344,7 +372,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/rn/whats_new.html</loc>
       
-      <lastmod>2022-04-26T17:07:52+00:00</lastmod>
+      <lastmod>2022-08-09T17:04:53+00:00</lastmod>
       
     </url>
   
@@ -365,7 +393,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/astra-automation/workflows_infra/workflows_infra_before.html</loc>
       
-      <lastmod>2021-08-06T12:53:50+00:00</lastmod>
+      <lastmod>2022-08-10T14:06:17+00:00</lastmod>
       
     </url>
   

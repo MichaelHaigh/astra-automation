@@ -538,6 +538,37 @@
           
           <a target="_blank" 
             
+              href="/us-en/astra-automation/pdfs/sidebar/LDAP_configuration.pdf" 
+            
+          >
+            <img src="/us-en/astra-automation/images/pdf.png" alt="" width="16" height="16"/>
+            LDAP configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
               href="/us-en/astra-automation/pdfs/sidebar/Buckets.pdf" 
             
           >
@@ -919,6 +950,17 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_users.html">
         List users
       </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> LDAP configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/ldap_prepare.html">
+        Prepare for LDAP configuration
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_configure_server.html">
+        Configure the LDAP server
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_add_entries.html">
+        Add LDAP entries to Astra
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_disable_reset.html">
+        Disable and reset LDAP
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Buckets</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_buckets.html">
@@ -1055,7 +1097,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-26 17:07:52 +0000">04/26/2022</time>
+    <time datetime="2022-08-09 17:04:53 +0000">08/09/2022</time>
     
   
 
@@ -1081,13 +1123,72 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="26-april-2022-22-04">26 April 2022 (22.04)</h2>
+<h2 id="10-august-2022-22-08">10 August 2022 (22.08)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This release includes an expansion and update of the REST API as well as enhanced security and administrative features.</p>
 </div>
 <div class="sect2">
 <h3 id="new-and-enhanced-astra-resources">New and enhanced Astra resources</h3>
+<div class="paragraph">
+<p>Three new resources types have been added: <strong>Certificate</strong>, <strong>Group</strong>, and <strong>AppMirror</strong>. In addition, the versions of several existing resources have been updated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ldap-authentication">LDAP authentication</h3>
+<div class="paragraph">
+<p>You can optionally configure Astra Control Center to integrate with an LDAP server to authenticate selected Astra users. See <a href="../workflows_infra/ldap_prepare.html">LDAP configuration</a> for more information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhanced-execution-hook">Enhanced execution hook</h3>
+<div class="paragraph">
+<p>Support for execution hooks was added with the Astra Control 21.12 release. In addition to the existing pre-snapshot and post-snapshot execution hooks, you can now configure the following types of execution hooks with the 22.08 release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pre-backup</p>
+</li>
+<li>
+<p>Post-backup</p>
+</li>
+<li>
+<p>Post-restore</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra Control now also allows same script to be used for multiple execution hooks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="application-replication-using-snapmirror">Application replication using SnapMirror</h3>
+<div class="paragraph">
+<p>You can now replicate data and application changes among clusters using NetApp SnapMirror technology. This enhancement can be used to improve your business continuity and recovery capabilities.</p>
+</div>
+<div class="ulist">
+<div class="title">Related information</div>
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/release-notes/whats-new.html" target="_blank" rel="noopener">Astra Control Center: What&#8217;s new</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/astra-control-service/release-notes/whats-new.html" target="_blank" rel="noopener">Astra Control Service: What&#8217;s new</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="26-april-2022-22-04">26 April 2022 (22.04)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This release includes an expansion and update of the REST API as well as enhanced security and administrative features.</p>
+</div>
+<div class="sect2">
+<h3 id="new-and-enhanced-astra-resources-2">New and enhanced Astra resources</h3>
 <div class="paragraph">
 <p>Two new resources types have been added: <strong>Package</strong> and <strong>Upgrade</strong>. In addition, the versions of several existing resources have been upgraded.</p>
 </div>
