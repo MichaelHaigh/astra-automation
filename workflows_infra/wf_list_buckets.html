@@ -53,11 +53,34 @@
   <link rel="stylesheet" href="/us-en/astra-automation/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
   <link rel='stylesheet' href='/us-en/astra-automation/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
-    if (document.location.hostname === "docs.netapp.com") {
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
       var head = document.getElementsByTagName('head')[0];
       var onetrustConsent = document.createElement("script");
       onetrustConsent.type = "text/javascript";
-      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
       head.appendChild(onetrustConsent);
 
       var onetrustScript = document.createElement("script");
@@ -65,30 +88,11 @@
       onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
       onetrustScript.charset = "UTF-8";
       onetrustScript.dataset.documentLanguage = "true";
-      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      onetrustScript.dataset.domainScript = consentId;
       head.appendChild(onetrustScript);
-    }
-
-    function OptanonWrapper() { }
-
-    if (document.location.hostname === "docs.netapp.com") {
-      var adobe = document.createElement("script");
-      adobe.type = "text/plain";
-      adobe.className = "optanon-category-C0002";
-      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-      head.appendChild(adobe);
-
-      var google = document.createElement("script");
-      google.type = "text/plain";
-      google.className = "optanon-category-C0002";
-      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
-      head.appendChild(google);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-81697994-3');
-    }
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -169,7 +173,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-automation/issues/new?body=Page%3A%20[List buckets](https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_buckets.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/astra-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/astra-automation/blob/main/workflows_infra/wf_list_buckets.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/astra-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/astra-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-automation/issues/new?body=Page%3A%20[List buckets](https://docs.netapp.com/us-en/astra-automation/workflows_infra/wf_list_buckets.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/us-en/astra-automation/images/discuss-sm.svg" alt="" class="github-icon" />Request doc changes</a><a target="_blank" href="https://github.com/NetAppDocs/astra-automation/blob/main/workflows_infra/wf_list_buckets.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/astra-automation/images/edit-sm.svg" alt="" class="github-icon" />Edit this page</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/astra-automation/images/article-sm.svg" alt="" class="github-icon" />Learn how to contribute</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">ON THIS PAGE</div>
@@ -341,6 +345,7 @@
   <!-- Sidebar Column -->
   
   <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/us-en/astra-automation/images/collapse.png" alt="Collapse navigation panel"></button>
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
     <img src="/us-en/astra-automation/images/pdf.png" alt="" width="16" height="16"/>Available PDFs<span>
@@ -889,162 +894,529 @@
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
 </script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Automation docs"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/index.html">
         Astra Control Automation docs
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Release notes"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Release notes</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rn/about.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="About this release"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rn/about.html">
         About this release
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rn/whats_new.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="What's new"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rn/whats_new.html">
         What's new
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rn/known_issues.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Known issues"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rn/known_issues.html">
         Known issues
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/intro/introduction.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Introduction"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/intro/introduction.html">
         Introduction
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Get started"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Get started</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/before_get_started.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Before you begin"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/before_get_started.html">
         Before you begin
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/get_api_token.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Get an API token"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/get_api_token.html">
         Get an API token
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/hello_world.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Hello world"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/hello_world.html">
         Hello world
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/prepare_to_use_workflows.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare to use the workflows"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/prepare_to_use_workflows.html">
         Prepare to use the workflows
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/kubernetes_concepts.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Basic Kubernetes concepts"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/get-started/kubernetes_concepts.html">
         Basic Kubernetes concepts
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Core REST implementation"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Core REST implementation</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/rest_web_services.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST web services"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/rest_web_services.html">
         REST web services
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/resources_collections.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resources and collections"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/resources_collections.html">
         Resources and collections
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/http_details.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="HTTP details"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/http_details.html">
         HTTP details
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/url_format.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="URL format"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/rest-core/url_format.html">
         URL format
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/endpoints/resources.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resources"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/endpoints/resources.html">
         Resources
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Additional usage considerations"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Additional usage considerations</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/additional/rbac.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="RBAC security"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/additional/rbac.html">
         RBAC security
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/additional/work_with_collections.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Work with collections"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/additional/work_with_collections.html">
         Work with collections
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/additional/diagnostics_support.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Diagnostics"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/additional/diagnostics_support.html">
         Diagnostics
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/additional/revoke_token.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Revoke an API token"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/additional/revoke_token.html">
         Revoke an API token
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Infrastructure workflows"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Infrastructure workflows</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/workflows_infra_before.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Before you begin"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/workflows_infra_before.html">
         Before you begin
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Identity and access"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Identity and access</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_users.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List users"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_users.html">
         List users
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="LDAP configuration"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> LDAP configuration</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/ldap_prepare.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare for LDAP configuration"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/ldap_prepare.html">
         Prepare for LDAP configuration
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_configure_server.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure the LDAP server"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_configure_server.html">
         Configure the LDAP server
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_add_entries.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Add LDAP entries to Astra"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_add_entries.html">
         Add LDAP entries to Astra
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_disable_reset.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Disable and reset LDAP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_ldap_disable_reset.html">
         Disable and reset LDAP
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Buckets"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Buckets</div>
       </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_buckets.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List buckets"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_buckets.html">
         List buckets
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Storage</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_storage_backends.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List storage backends"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_storage_backends.html">
         List storage backends
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Clusters"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Clusters</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_man_clusters.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List managed clusters"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows_infra/wf_list_man_clusters.html">
         List managed clusters
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Management workflows"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Management workflows</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/workflows_before.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Before you begin"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/workflows_before.html">
         Before you begin
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="App control"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> App control</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_unman_apps.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List unmanaged apps"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_unman_apps.html">
         List unmanaged apps
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_man_apps.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List managed apps"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_man_apps.html">
         List managed apps
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_get_man_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Get a managed app"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_get_man_app.html">
         Get a managed app
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_manage_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manage an app"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_manage_app.html">
         Manage an app
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_unmanage_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Unmanage an app"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_unmanage_app.html">
         Unmanage an app
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="App protection"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> App protection</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_snapshots.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List snapshots"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_snapshots.html">
         List snapshots
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List backups"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_backups.html">
         List backups
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_create_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Create snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_create_snapshot.html">
         Create snapshot
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_create_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Create backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_create_backup.html">
         Create backup
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Delete snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_snapshot.html">
         Delete snapshot
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Delete backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_backup.html">
         Delete backup
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloning and restoring an app"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Cloning and restoring an app</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Clone an app"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app.html">
         Clone an app
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Clone an app from a snapshot"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app_snapshot.html">
         Clone an app from a snapshot
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Clone an app from a backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_clone_app_backup.html">
         Clone an app from a backup
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_restore_app_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Restore an app from a backup"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_restore_app_backup.html">
         Restore an app from a backup
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Support"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Support</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_notifications.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List notifications"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_list_notifications.html">
         List notifications
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_failed_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Delete a failed app"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/workflows/wf_delete_failed_app.html">
         Delete a failed app
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Using Python"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Using Python</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/python/astra_toolkits.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Astra Control Python SDK"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/python/astra_toolkits.html">
         NetApp Astra Control Python SDK
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Native Python"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Native Python</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/python/python_before.html">
+      <ul>
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Before you begin"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/python/python_before.html">
         Before you begin
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/python/py_list_man_apps.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="List the managed apps"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/python/py_list_man_apps.html">
         List the managed apps
-      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/reference/api_reference.html">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="API reference"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/reference/api_reference.html">
         API reference
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/information/additional_resources.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Additional resources"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/information/additional_resources.html">
         Additional resources
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/aa-earlier-versions.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Earlier versions"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/aa-earlier-versions.html">
         Earlier versions
-      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/astra-automation/legal-notices.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Legal notices"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/us-en/astra-automation/legal-notices.html">
         Legal notices
       </a></li></ul>
 </div>
@@ -1063,8 +1435,9 @@
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container --><article class="page-content">
+    <!-- Begin of page container --><article class="page-content" id="main">
       <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/us-en/astra-automation/images/expand.png" alt="Expand navigation panel"></button>
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
